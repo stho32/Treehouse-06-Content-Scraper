@@ -16,7 +16,6 @@
       - [ ] Assume that the the column headers in the CSV need to be in a certain order to be correctly entered into a database. They should be in this order: Title, Price, ImageURL, URL, and Time
       - [ ] The CSV file should be saved inside the ‘data’ folder.
 
-
   - [ ] If your program is run twice, it should overwrite the data in the CSV file with the updated information.
   - [ ] If http://shirts4mike.com is down, an error message describing the issue should appear in the console.
 
@@ -30,25 +29,26 @@
 
 # How you will be graded - section
 
-  | Needs Work| Meets Expectations| Exceeds Expectations|
-|--- |--- |--- |
-|Command Line Interface and Dependency Management|Project doesn’t include a   package.json file containing  relevant dependencies to run node scraper.js. 
-Running npm install does not install relevant dependencies|Project includes a package.json file containing dependencies to run node scraper.js
-Running npm install installs relevant dependencies|The scraper.js file can be run with the npm start command|
-|Folder Generation|Program doesn’t check for a ‘data’ folder and/or fails to create a ‘data’ folder if one doesn’t exist
-When the program runs a second time, a duplicate ‘data’ folder is created or the program throws errors because the ‘data’ folder already exists|Program creates  onedata folder if that folder doesn’t already exist. If the folder does exist, the program does nothing.|N/A|
-|Research npm packages|Chosen scraping and CSV packages don’t meet the following requirements on npm: 
-1,000 downloads
-Updated in the last 6 months|Chosen scraping and CSV packages meet the following requirements on npm: 
-1,000 downloads
-Updated in the last 6 months|N/A|
-|Crawling|‘scraper.js’ uses hardcoded URLs to find all the shirts on the page, or finds less than 8 shirts|The project uses the  http://shirts4mike.com/shirts.php URL as an entry point to look through the links on the page to find 8 shirts|N/A|
-|Scraping and Saving Data|Project doesn’t scrape all of the required information: product title, price, image and url, or information is incorrect or in the wrong place
-CSV is not successfully saved to the ‘data’ folder in this format: ‘YYYY-MM-DD.csv’, e.g. ‘2016-12-30.csv’
-Column headers are not in this order: Title, Price, ImageURL, URL, Time|Project scrapes the product title, price, image and url, and all information is correct and in the correct place
-A CSV is successfully saved to the ‘data’ folder in this format: ‘YYYY-MM-DD.csv’, e.g. ‘2016-12-30.csv’.
-Column headers are in this order: Title, Price, ImageURL, URL, Time|N/A|
-|Overwriting Data|If the script is run twice, the program files to overwrite the data. Instead an error occurs, or the script appends data to the existing CSV file.|If the script is run twice, the program overwrites the data. The file contains the data from the second call.|N/A|
-|Error Handling|The program does not display an error  in the console when it is unable to connect to http://shirts4mike.com|The program displays a human-friendly error (not just the original error code) when it cannot connect to http://shirts4mike.com|Program logs errors in a scraper-error.log` file. 
-New errors append  to the end of the file with a timestamp, e.g. [Tue Feb 16 2016 13:00:55 GMT-0800 (PST)] <error message>|
+  - [ ] Project includes a package.json file containing dependencies to run node scraper.js
 
+  - [ ] Running npm install installs relevant dependencies
+
+  - [ ] The scraper.js file can be run with the npm start command 
+
+  - [ ] Program creates onedata folder if that folder doesn’t already exist. If the folder does exist, the program does nothing.
+
+  - [ ] Chosen scraping and CSV packages meet the following requirements on npm:
+    - 1,000 downloads
+    - Updated in the last 6 months
+
+  - [ ] The project uses the http://shirts4mike.com/shirts.php URL as an entry point to look through the links on the page to find 8 shirts
+
+  - [ ] Project scrapes the product title, price, image and url, and all information is correct and in the correct place
+
+  - [ ] A CSV is successfully saved to the ‘data’ folder in this format: ‘YYYY-MM-DD.csv’, e.g. ‘2016-12-30.csv’.
+
+  - [ ] Column headers are in this order: Title, Price, ImageURL, URL, Time
+
+  - [ ] If the script is run twice, the program overwrites the data. The file contains the data from the second call. 
+
+  - [ ] The program displays a human-friendly error (not just the original error code) when it cannot connect to http://shirts4mike.com
