@@ -8,7 +8,7 @@
     - At least 1,000 downloads
     - Has been updated in the last six months
 
-  - [ ] (R4) Program your scraper so that it visits the website http://shirts4mike.com and uses http://shirts4mike.com/shirts.php as single entry point to scrape information for 8 tee-shirts from the site, without using any hard-coded urls like http://www.shirts4mike.com/shirt.php?id=101. If you’re unsure of how to get started, try googling ‘node scraper’ to get a feel for what a scraper is and what it does.
+  - [x] (R4) Program your scraper so that it visits the website http://shirts4mike.com and uses http://shirts4mike.com/shirts.php as single entry point to scrape information for 8 tee-shirts from the site, without using any hard-coded urls like http://www.shirts4mike.com/shirt.php?id=101. If you’re unsure of how to get started, try googling ‘node scraper’ to get a feel for what a scraper is and what it does.
 
     - [ ] (R5) Scraping and Saving Data:
       - [ ] (R6) The scraper should get the price, title, url and image url from the product page and save this information into a CSV file.
