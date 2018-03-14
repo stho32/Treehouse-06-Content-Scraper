@@ -1,0 +1,23 @@
+{
+  "name": "shirts4mike-scraper",
+  "version": "1.0.0",
+  "description": "scrape the mighty shirts4mike page",
+  "main": "scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stho32/Treehouse-06-Content-Scraper.git"
+  },
+  "keywords": [
+    "scrape",
+    "shirts4mike"
+  ],
+  "author": "stho32",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stho32/Treehouse-06-Content-Scraper/issues"
+  },
+  "homepage": "https://github.com/stho32/Treehouse-06-Content-Scraper#readme"
+}
