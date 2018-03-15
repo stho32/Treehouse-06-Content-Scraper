@@ -5,6 +5,7 @@
  */
 
 const scrapeIt = require("scrape-it")
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 /**
  * Check if the sub-folder "data" exists.
@@ -41,6 +42,16 @@ function grabShirtData(url) {
         price: { selector: ".price" },
         title: { selector: "head title" },
         imageUrl: { selector: ".shirt-picture img", attr: "src" }
+    })
+    .then(({ data, response }) => {
+        let shirt = {
+            price: data.price,
+            title: data.title,
+            url: url,
+            imageUrl: "http://shirts4mike.com/" + data.imageUrl
+        }
+
+        return shirt;
     });
 }
 
@@ -49,24 +60,44 @@ createDataFolderIfNeeded();
 
 // Requirement 4: Dynamically load all urls from this page that point
 //                to shirts!
+let shirtDataGrabbers = [];
+let shirtData = [];
+
 grabShirtLinks("http://shirts4mike.com/shirts.php")
     .then(({ data, response }) => {
-
         for (let i = 0; i < data.links.length; i++) {
             let link = data.links[i].link;
 
             console.log("grabbing " + link + " ...");
 
             // Requirement 5 : Then grab data from the shirts...
-            grabShirtData("http://shirts4mike.com/" + link)
-                .then(({ data, response }) => {
-                    let shirt = {
-                        price: data.price,
-                        title: data.title,
-                        url: link,
-                        imageUrl: data.imageUrl
-                    }
-                    console.log(shirt);
-                });
+            shirtDataGrabbers.push(grabShirtData("http://shirts4mike.com/" + link));
         }
+
+        // After all data is grabbed we can save it to a csv file
+        Promise.all(shirtDataGrabbers).then(
+            data => {
+                const csvWriter = createCsvWriter({
+                    path: 'data/file.csv',
+                    header: [
+                        {id: 'title',    title: 'title'   },
+                        {id: 'price',    title: 'price'   },
+                        {id: 'url',      title: 'url'     },
+                        {id: 'imageUrl', title: 'imageUrl'}
+                    ]
+                });
+
+                csvWriter.writeRecords(data)     
+                .then(() => {
+                    console.log('...Done');
+                },
+                error => {
+                    console.error("Error during saving data : " + error);
+                });
+            },
+            error => {
+                console.error("An error occured: " + error);
+            }
+        );
     });
+
