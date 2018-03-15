@@ -15,15 +15,15 @@ folderTool.createFolderIfItDoesNotExistsSync("data");
 shirts4mike.grabShirt4MikeShopData("http://shirts4mike.com", "http://shirts4mike.com/shirts.php")
 .then(
     data => {
-        const filename = moment();
+        const filename = moment().format("YYYY-MM-DD");
 
         const csvWriter = createCsvWriter({
-            path: 'data/file.csv',
+            path: 'data/' + filename + '.csv',
             header: [
                 {id: 'title',    title: 'title'   },
                 {id: 'price',    title: 'price'   },
+                {id: 'imageUrl', title: 'imageUrl'},
                 {id: 'url',      title: 'url'     },
-                {id: 'imageUrl', title: 'imageUrl'}
             ]
         });
 
