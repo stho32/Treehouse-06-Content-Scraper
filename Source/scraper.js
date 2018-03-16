@@ -8,6 +8,14 @@ const shirts4mike = require("./lib/shirts4mike");
 const moment = require("moment");
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
+console.log(`
+---------------------------------------------------------------------------------
+
+    Shirt4Mike Scraper - scraping the same 8 shirts over and over since 2018
+
+---------------------------------------------------------------------------------
+`);
+
 
 // Requirement 1: Create that data folder if it does not exist...
 folderTool.createFolderIfItDoesNotExistsSync("data");
