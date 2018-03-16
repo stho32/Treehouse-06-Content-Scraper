@@ -12,36 +12,34 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 // Requirement 1: Create that data folder if it does not exist...
 folderTool.createFolderIfItDoesNotExistsSync("data");
 
-shirts4mike.grabShirt4MikeShopData("http://shirts4mike.com")
-.then(
-    data => {
-        const filename = moment().format("YYYY-MM-DD");
+let url = "http://shirts4mike.com";
 
-        const csvWriter = createCsvWriter({
-            path: 'data/' + filename + '.csv',
-            header: [
-                {id: 'title',    title: 'title'   },
-                {id: 'price',    title: 'price'   },
-                {id: 'imageUrl', title: 'imageUrl'},
-                {id: 'url',      title: 'url'     },
-            ]
-        });
+// 404-test
+//url = "http://realmbender.de/404";
 
-        csvWriter.writeRecords(data)     
-        .then(() => {
-            console.log('...Done');
+shirts4mike.grabShirt4MikeShopData(url)
+    .then(
+        data => {
+            const filename = moment().format("YYYY-MM-DD");
+
+            const csvWriter = createCsvWriter({
+                path: 'data/' + filename + '.csv',
+                header: [
+                    { id: 'title', title: 'title' },
+                    { id: 'price', title: 'price' },
+                    { id: 'imageUrl', title: 'imageUrl' },
+                    { id: 'url', title: 'url' },
+                ]
+            });
+
+            csvWriter.writeRecords(data)
+                .then(() => { console.log('...Done'); },
+                    error => { console.error("Error during saving data : " + error); }
+                );
         },
         error => {
-            console.error("Error during saving data : " + error);
-        });
-    },
-    error => {
-        console.error("An error occured: " + error);
-    }
-
-)
-
-
-// NEXT: 
-// Filename by date (R7)
-// momentjs is installed
+            if (error.code === "ENOTFOUND" && error.syscall === "getaddrinfo") {
+                console.error("The domain " + error.hostname + " cannot be resolved. Are you offline?");
+            }
+        }
+    );

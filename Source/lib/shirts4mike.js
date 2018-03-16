@@ -36,17 +36,21 @@ function grabShirtData(url, baseUrl) {
         price: { selector: ".price" },
         title: { selector: "head title" },
         imageUrl: { selector: ".shirt-picture img", attr: "src" }
-    })
-        .then(({ data, response }) => {
-            let shirt = {
-                price: data.price,
-                title: data.title,
-                url: url,
-                imageUrl: baseUrl + "/" + data.imageUrl
-            }
+    }).then(({ data, response }) => {
+        if (response.statusCode !== 200) {
+            let error = `There’s been a ${response.statusCode} error. Cannot connect to ${baseUrl}.`;
+            return Promise.reject(error);
+        }
 
-            return shirt;
-        });
+        let shirt = {
+            price: data.price,
+            title: data.title,
+            url: url,
+            imageUrl: baseUrl + "/" + data.imageUrl
+        }
+
+        return shirt;
+    }, error => { return Promise.reject(error); });
 }
 
 
@@ -63,10 +67,14 @@ function grabShirt4MikeShopData(baseUrl) {
 
     return grabShirtLinks(startUrl)
         .then(({ data, response }) => {
+            if (response.statusCode !== 200) {
+                return Promise.reject(`There’s been a ${response.statusCode} error. Cannot connect to ${startUrl}.`)
+            }
+
             for (let i = 0; i < data.links.length; i++) {
                 let link = data.links[i].link;
 
-                console.log("grabbing " + link + " ...");
+                console.log("  - grabbing " + link + " ...");
 
                 // Requirement 5 : Then grab data from the shirts...
                 shirtDataGrabbers.push(grabShirtData(baseUrl + "/" + link, baseUrl));

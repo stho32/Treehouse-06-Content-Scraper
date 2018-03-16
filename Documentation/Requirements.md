@@ -17,10 +17,10 @@
       - [x] (R9) The CSV file should be saved inside the ‘data’ folder.
 
   - [x] (R10) If your program is run twice, it should overwrite the data in the CSV file with the updated information.
-  - [ ] (R11) If http://shirts4mike.com is down, an error message describing the issue should appear in the console.
+  - [x] (R11) If http://shirts4mike.com is down, an error message describing the issue should appear in the console.
 
-    - [ ] (R12) The error should be human-friendly, such as “There’s been a 404 error. Cannot connect to http://shirts4mike.com.”
-    - [ ] (R13) To test and make sure the error message displays as expected, you can disable the wifi on your computer or device.
+    - [x] (R12) The error should be human-friendly, such as “There’s been a 404 error. Cannot connect to http://shirts4mike.com.”
+    - [x] (R13) To test and make sure the error message displays as expected, you can disable the wifi on your computer or device.
 
   - [ ] (R14) Edit your package.json file so that your program runs when the npm start command is run.
   
