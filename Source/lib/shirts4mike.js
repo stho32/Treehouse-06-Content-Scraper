@@ -54,12 +54,12 @@ function grabShirtData(url, baseUrl) {
  * Scrapes shirts4mike and returns all data it can get!
  * 
  * @param {string} baseUrl http://shirts4mike.com 
- * @param {string} startUrl http://shirts4mike.com/shirts.php
  */
-function grabShirt4MikeShopData(baseUrl, startUrl) {
+function grabShirt4MikeShopData(baseUrl) {
     // Requirement 4: Dynamically load all urls from this page that point
     //                to shirts!
     let shirtDataGrabbers = [];
+    let startUrl = baseUrl + "/shirts.php";
 
     return grabShirtLinks(startUrl)
         .then(({ data, response }) => {

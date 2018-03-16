@@ -12,7 +12,7 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 // Requirement 1: Create that data folder if it does not exist...
 folderTool.createFolderIfItDoesNotExistsSync("data");
 
-shirts4mike.grabShirt4MikeShopData("http://shirts4mike.com", "http://shirts4mike.com/shirts.php")
+shirts4mike.grabShirt4MikeShopData("http://shirts4mike.com")
 .then(
     data => {
         const filename = moment().format("YYYY-MM-DD");
