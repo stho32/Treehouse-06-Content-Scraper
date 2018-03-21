@@ -39,6 +39,7 @@ shirts4mike.grabShirt4MikeShopData(url)
                     { id: 'price',    title: 'price'    },
                     { id: 'imageUrl', title: 'imageUrl' },
                     { id: 'url',      title: 'url'      },
+                    { id: 'time',     title: 'time'     }
                 ]
             });
 

@@ -3,6 +3,7 @@
  * the data from http://shirts4mike.com.
  */
 const scrapeIt = require("scrape-it");
+const moment = require("moment");
 
 /**
  * Extract all shirt links from a start url 
@@ -12,6 +13,8 @@ const scrapeIt = require("scrape-it");
  * @param {string} startUrl url to start from
  */
 function grabShirtLinks(startUrl) {
+    console.log("Using entry point url: " + startUrl);
+
     return scrapeIt(startUrl, {
         links: {
             listItem: ".products li",
@@ -46,7 +49,8 @@ function grabShirtData(url, baseUrl) {
             price: data.price,
             title: data.title,
             url: url,
-            imageUrl: baseUrl + "/" + data.imageUrl
+            imageUrl: baseUrl + "/" + data.imageUrl,
+            time : moment().format("HH:mm:ss")
         }
 
         return shirt;

@@ -31,24 +31,24 @@
 
   - [x] (R16) Project includes a package.json file containing dependencies to run node scraper.js
 
-  - [ ] (R17) Running npm install installs relevant dependencies
+  - [x] (R17) Running npm install installs relevant dependencies
 
-  - [ ] (R18) The scraper.js file can be run with the npm start command 
+  - [x] (R18) The scraper.js file can be run with the npm start command 
 
-  - [ ] (R19) Program creates onedata folder if that folder doesn’t already exist. If the folder does exist, the program does nothing.
+  - [x] (R19) Program creates one data folder if that folder doesn’t already exist. If the folder does exist, the program does nothing.
 
-  - [ ] (R20) Chosen scraping and CSV packages meet the following requirements on npm:
+  - [x] (R20) Chosen scraping and CSV packages meet the following requirements on npm:
     - 1,000 downloads
     - Updated in the last 6 months
 
-  - [ ] (R21) The project uses the http://shirts4mike.com/shirts.php URL as an entry point to look through the links on the page to find 8 shirts
+  - [x] (R21) The project uses the http://shirts4mike.com/shirts.php URL as an entry point to look through the links on the page to find 8 shirts
 
-  - [ ] (R22) Project scrapes the product title, price, image and url, and all information is correct and in the correct place
+  - [x] (R22) Project scrapes the product title, price, image and url, and all information is correct and in the correct place
 
-  - [ ] (R23) A CSV is successfully saved to the ‘data’ folder in this format: ‘YYYY-MM-DD.csv’, e.g. ‘2016-12-30.csv’.
+  - [x] (R23) A CSV is successfully saved to the ‘data’ folder in this format: ‘YYYY-MM-DD.csv’, e.g. ‘2016-12-30.csv’.
 
-  - [ ] (R24) Column headers are in this order: Title, Price, ImageURL, URL, Time
+  - [x] (R24) Column headers are in this order: Title, Price, ImageURL, URL, Time
 
-  - [ ] (R25) If the script is run twice, the program overwrites the data. The file contains the data from the second call. 
+  - [x] (R25) If the script is run twice, the program overwrites the data. The file contains the data from the second call. 
 
-  - [ ] (R26) The program displays a human-friendly error (not just the original error code) when it cannot connect to http://shirts4mike.com
+  - [x] (R26) The program displays a human-friendly error (not just the original error code) when it cannot connect to http://shirts4mike.com
