@@ -24,12 +24,12 @@
 
   - [x] (R14) Edit your package.json file so that your program runs when the npm start command is run.
   
-  - [ ] (R15) When an error occurs, log it to a file named scraper-error.log . It should append to the bottom of the file with a time stamp and error e.g. [Tue Feb 16 2016 10:02:12 GMT-0800 (PST)] <error message> 
+  - [x] (R15) When an error occurs, log it to a file named scraper-error.log . It should append to the bottom of the file with a time stamp and error e.g. [Tue Feb 16 2016 10:02:12 GMT-0800 (PST)] <error message> 
 
 
 # How you will be graded - section
 
-  - [ ] (R16) Project includes a package.json file containing dependencies to run node scraper.js
+  - [x] (R16) Project includes a package.json file containing dependencies to run node scraper.js
 
   - [ ] (R17) Running npm install installs relevant dependencies
 
