@@ -7,6 +7,8 @@ const folderTool = require("./lib/folderTool");
 const shirts4mike = require("./lib/shirts4mike");
 const moment = require("moment");
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+const errorLog = require("./lib/error-log");
+errorLog.SetFilename("scraper-error.log");
 
 console.log(`
 ---------------------------------------------------------------------------------
@@ -33,21 +35,26 @@ shirts4mike.grabShirt4MikeShopData(url)
             const csvWriter = createCsvWriter({
                 path: 'data/' + filename + '.csv',
                 header: [
-                    { id: 'title', title: 'title' },
-                    { id: 'price', title: 'price' },
+                    { id: 'title',    title: 'title'    },
+                    { id: 'price',    title: 'price'    },
                     { id: 'imageUrl', title: 'imageUrl' },
-                    { id: 'url', title: 'url' },
+                    { id: 'url',      title: 'url'      },
                 ]
             });
 
             csvWriter.writeRecords(data)
                 .then(() => { console.log('...Done'); },
-                    error => { console.error("Error during saving data : " + error); }
+                    error => { 
+                        errorLog.Log("Error during saving data : " + error); 
+                    }
                 );
         },
         error => {
             if (error.code === "ENOTFOUND" && error.syscall === "getaddrinfo") {
-                console.error("The domain " + error.hostname + " cannot be resolved. Are you offline?");
+                errorLog.Log("The domain " + error.hostname + " cannot be resolved. Are you offline?");
+                return;
             }
+
+            errorLog.Log(error);
         }
     );
