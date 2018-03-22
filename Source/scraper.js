@@ -13,7 +13,7 @@ errorLog.SetFilename("scraper-error.log");
 console.log(`
 ---------------------------------------------------------------------------------
 
-    Shirt4Mike Scraper - scraping the same 8 shirts over and over since 2018
+    Shirts4Mike Scraper - scraping the same 8 shirts over and over since 2018
 
 ---------------------------------------------------------------------------------
 `);
