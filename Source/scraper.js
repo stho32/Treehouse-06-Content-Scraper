@@ -19,7 +19,7 @@ console.log(`
 `);
 
 
-// Requirement 1: Create that data folder if it does not exist...
+// Create that data folder if it does not exist...
 folderTool.createFolderIfItDoesNotExistsSync("data");
 
 let url = "http://shirts4mike.com";
@@ -27,6 +27,9 @@ let url = "http://shirts4mike.com";
 // 404-test
 //url = "http://realmbender.de/404";
 
+/* Grab all data and save it to csv using promises. 
+   You can find the dependent sources in the lib folder. 
+*/
 shirts4mike.grabShirt4MikeShopData(url)
     .then(
         data => {
