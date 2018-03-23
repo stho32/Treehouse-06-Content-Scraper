@@ -11,4 +11,4 @@ See [requirements](Documentation/Requirements.md) for the instructions.
 
 After cloning you may do the following: 
 
-!(Documentation/TerminalUsage.png "Terminal usage")
+![Terminal](Documentation/TerminalUsage.png)
