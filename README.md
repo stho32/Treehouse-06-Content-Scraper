@@ -7,4 +7,8 @@ This project is about building a little web scraper that scrapes that prices fro
 
 See [requirements](Documentation/Requirements.md) for the instructions.
 
-**As soon as the project is completed i'll add a usage guide**
+## Usage
+
+After cloning you may do the following: 
+
+!(Documentation/TerminalUsage.png "Terminal usage")
